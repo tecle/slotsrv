@@ -1,0 +1,40 @@
+#成就类型(值从0开始):
+LEVEL_UP：等级成就
+EARNED：累积盈利
+BET：累积赌注
+FRIEND：朋友个数
+RECV_GIFT：接收礼物
+SEND_GIFT：赠送礼物
+TINY_GAME：小游戏，具体值为 gameid * factor2 + target
+FREE_GAME：免费游戏，具体值为 gameid * factor2 + target
+MEGA_WIN：具体值为 gameid * factor2 + target
+BIG_WIN ：具体值为 gameid * factor2 + target
+JACKPOT ：具体值为 gameid * factor2 + target
+LINE : 连线成就，具体的值为 gameid * factor1 + eleid * factor2 + lineid * factor3 + target
+## 因子的值
+factor1 = 10^12
+factor2 = 10^9
+factor3 = 10^7
+
+# 游戏ID(gameid)：从第一个游戏开始，第一个游戏的值为0
+
+# 游戏元素(eleid)：从第一个元素开始递增，第一个元素的值为0
+
+# Rank
+## Rank will cache rank data to mem. and server will update rank data from db every 5 min.
+## There must have a job to caculate rank data to db.
+
+# Login setting
+## VIP Level bonus setting: (id, val, extra_val)
+10000 + level, bonus
+eg:
+level 1:1000 (level 1 user can get 1000) == (10001, 1000)
+## Runner bonus setting:
+30000 + id
+eg:
+1000, 254 (there 25.4% chance to hit, and its reward 1000) == (30001, 1000, 254)
+make sure the sum of chance is 100%
+## Login days bonus setting:
+eg:
+20000 + dayn
+1: 1000 (login 1 day can get 1000 gold) == (20001, 1000)
